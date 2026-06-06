@@ -1,20 +1,16 @@
-return {
-  'stevearc/oil.nvim',
-  ---@module 'oil'
-  ---@type oil.SetupOpts
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
-  config = function()
-    require('oil').setup {
-      watch_for_changes = true,
-      view_options = {
-        show_hidden = true,
-      },
-    }
-
-    -- set keymaps
-    local keymap = vim.keymap
-
-    keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-    keymap.set('n', '<leader>-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory in floating window' })
-  end,
+vim.pack.add {
+  'https://github.com/stevearc/oil.nvim',
+  'https://github.com/nvim-tree/nvim-web-devicons',
 }
+
+---@module 'oil'
+---@type oil.SetupOpts
+require('oil').setup {
+  watch_for_changes = true,
+  view_options = {
+    show_hidden = true,
+  },
+}
+
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+vim.keymap.set('n', '<leader>-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory in floating window' })
