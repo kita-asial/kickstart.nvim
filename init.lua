@@ -700,6 +700,8 @@ do
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     -- ts_ls = {},
 
+    ruff = {},
+
     stylua = {}, -- Used to format Lua code
 
     -- Special Lua Config, as recommended by neovim help docs
@@ -787,7 +789,7 @@ do
         json = true,
         html = true,
         css = true,
-        markdown = true,
+        -- markdown = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -806,6 +808,7 @@ do
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       lua = { 'stylua' },
+      python = { 'ruff_format' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
@@ -813,7 +816,7 @@ do
       json = { 'prettierd', 'prettier', stop_after_first = true },
       html = { 'prettierd', 'prettier', stop_after_first = true },
       css = { 'prettierd', 'prettier', stop_after_first = true },
-      markdown = { 'prettierd', 'prettier', stop_after_first = true },
+      -- markdown = { 'prettierd', 'prettier', stop_after_first = true },
     },
   }
 
